@@ -16,6 +16,7 @@ if(isset($_POST['login_button'])) {
         }
 
         $_SESSION['username'] = $username;
+        session_write_close();
         header("Location: index.php");
         exit();
 
