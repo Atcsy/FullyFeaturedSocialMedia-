@@ -175,3 +175,9 @@ textarea:focus {
 	font-family: 'Bellota-BoldItalic', sans-serif;
 	text-shadow: #73B6E2 0.5px 0.5px 0px;
 }
+.newsfeedPostOptions {
+    padding: 0px;
+    text-decoration: none;
+    color: #20AAE5;
+    border: none;
+}

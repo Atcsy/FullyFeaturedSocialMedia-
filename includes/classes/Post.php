@@ -183,6 +183,13 @@ class Post
                                         <div id='post_body'>
                                             $body
                                             <br>
+                                            <br>
+                                            <br>
+                                        </div>
+
+                                        <div class='newsfeedPostOptions'>
+                                            Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
+
                                         </div>
 
                                     </div>
