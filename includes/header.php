@@ -18,6 +18,7 @@ if(isset($_SESSION['username'])) {
     <!-- Js -->
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src = "assets/js/bootstrap.min.js"></script>
+    <script src = "assets/js/bootbox.min.js"></script>
     <script src = "assets/js/main.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
