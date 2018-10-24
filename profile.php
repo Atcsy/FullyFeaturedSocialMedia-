@@ -10,10 +10,22 @@ if(isset($_GET['profile_username'])) {
     $user_array = mysqli_fetch_array($user_details_query);
 
     $num_friends = (substr_count($user_array['friend_array'], ",")) - 1;
-
+}
+if(isset($_POST['remove_friend'])) {
+    $user = new User($con, $userLoggedIn);
+    $user->removeFriend($username);
+}
+if(isset($_POST['add_friend'])) {
+    $user = new User($con, $userLoggedIn);
+    $user->sendRequest($username);
 
 }
-
+if(isset($_POST['respond_request'])) {
+    header("Location: request.php");
+}
+// echo "<br>";
+// echo "<br>";
+// var_dump($_POST);
 
 
 ?>
