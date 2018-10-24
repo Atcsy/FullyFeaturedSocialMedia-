@@ -42,7 +42,7 @@ if(isset($_SESSION['username'])) {
             <a href="#">
                 <i class="fa fa-bell fa-lg"></i>
             </a>
-            <a href="#">
+            <a href="requests.php">
                 <i class="fa fa-users fa-lg"></i>
             </a>
             <a href="#">
