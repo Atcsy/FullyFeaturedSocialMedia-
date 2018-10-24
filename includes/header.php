@@ -19,11 +19,14 @@ if(isset($_SESSION['username'])) {
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src = "assets/js/bootstrap.min.js"></script>
     <script src = "assets/js/bootbox.min.js"></script>
+    <script src = "assets/js/jquery.jcrop.js"></script>
+    <script src = "assets/js/jcrop_bits.js"></script>
     <script src = "assets/js/main.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/jquery.Jcrop.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="top_bar">

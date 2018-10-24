@@ -115,7 +115,6 @@ class User
         $row = mysqli_fetch_array($query);
         $user_to_check_array = $row['friend_array'];
         $user_to_check_array_explode = explode(",", $user_to_check_array);
-
         foreach($user_array_explode as $i) {
             foreach($user_to_check_array_explode as $j) {
                 if($i == $j && $i != "") {
