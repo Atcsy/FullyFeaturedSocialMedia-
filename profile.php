@@ -1,5 +1,7 @@
 <?php
 include("includes/header.php");
+include("includes/classes/User.php");
+include("includes/classes/Post.php");
 // access profile.php?profile_username=$name
 
 if(isset($_GET['profile_username'])) {
@@ -29,7 +31,37 @@ if(isset($_GET['profile_username'])) {
  			<p><?php echo "Posts: " . $user_array['num_posts']; ?></p>
  			<p><?php echo "Likes: " . $user_array['num_likes']; ?></p>
  			<p><?php echo "Friends: " . $num_friends ?></p>
- 		</div>
+         </div>
+
+         <form action="profile.php?profile_username=<?php echo $username; ?>" method="POST">
+ 			<?php
+ 			$profile_user_obj = new User($con, $username);
+ 			if($profile_user_obj->isClosed()) {
+ 				header("Location: user_closed.php");
+ 			}
+
+ 			$logged_in_user_obj = new User($con, $userLoggedIn);
+
+ 			if($userLoggedIn != $username) {
+
+ 				if($logged_in_user_obj->isFriend($username)) {
+ 					echo '<input type="submit" name="remove_friend" class="danger" value="Remove Friend"><br>';
+ 				}
+ 				else if ($logged_in_user_obj->didReceiveRequest($username)) {
+ 					echo '<input type="submit" name="respond_request" class="warning" value="Respond to Request"><br>';
+ 				}
+ 				else if ($logged_in_user_obj->didSendRequest($username)) {
+ 					echo '<input type="submit" name="" class="default" value="Request Sent"><br>';
+ 				}
+ 				else
+ 					echo '<input type="submit" name="add_friend" class="success" value="Add Friend"><br>';
+
+ 			}
+
+ 			?>
+ 		</form>
+ 		<input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post Something">
+
 
 </div>
 
