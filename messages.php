@@ -9,7 +9,9 @@ if(isset($_GET['u']))
 else {
     $user_to = $message_obj->getMostRecentUser();
     if($user_to == false)
-        $user_to = 'new';
+        $user_to = "new";
 }
+if($user_to != "new")
+    $user_to_obj = new User($con,$user_to);
 
 ?>
