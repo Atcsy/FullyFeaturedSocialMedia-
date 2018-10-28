@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
 </head>
 <body>
 
@@ -17,6 +17,20 @@
 		position: absolute;
 		top: 0;
 	}
+	.comment_like {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: #3488db;
+    padding: 0px;
+    height: auto;
+    width: auto;
+    margin: 0;
+}
+.like_value {
+    display: inline;
+    font-size: 14px;
+}
 
 	</style>
 
