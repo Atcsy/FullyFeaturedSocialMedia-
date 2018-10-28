@@ -5,10 +5,10 @@ class Message
     private $user_obj;
     private $con;
 
-    public function _construct($con, $user)
+    public function __construct($con, $user)
     {
         $this->con = $con;
-        $this->user_obj = new user($con, $user);
+        $this->user_obj = new User($con, $user);
     }
 
     public function getMostRecentUser()

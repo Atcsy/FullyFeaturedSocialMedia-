@@ -1,7 +1,7 @@
 <?php
 include("includes/header.php");
-include("includes/classes/User.php");
-include("includes/classes/Post.php");
+// include("includes/classes/User.php");
+// include("includes/classes/Post.php");
 // session_destroy();
 
 if(isset($_POST['post'])) {
