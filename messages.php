@@ -29,5 +29,12 @@ if($user_to != "new")
 
 			?>
 		</div>
-	</div>
+</div>
 
+<div class="main_column column" id="main_column">
+    <?php
+    if($user_to !="new")
+    echo "<h4>You and <a href='$user_to'>" . $user_to_obj->getFirstAndLastName() . "</a></h4><hr><br>";
+
+    ?>
+</div>
