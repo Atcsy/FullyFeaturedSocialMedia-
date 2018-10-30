@@ -77,6 +77,8 @@ if($user_to != "new")
 	<div class="loaded_conversations">
 		<?php echo $message_obj->getConvos(); ?>
 		<br>
+	</div>
+	<div>
 		<a href="messages.php?u=new" >New Message</a>
 	</div>
 </div>

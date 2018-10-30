@@ -55,7 +55,7 @@ class Message
 
 		while($row = mysqli_fetch_array($get_messages_query)) {
 			$user_to = $row['user_to'];
-			$user_from = $row['user_form'];
+			$user_from = $row['user_from'];
 			$body = $row['body'];
 
 			$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='green'>" : "<div class='message' id='blue'>";
@@ -71,7 +71,7 @@ class Message
 								OR (user_to='$user2' AND user_from='$userLoggedIn') ORDER BY id DESC LIMIT 1" );
 
 		$row = mysqli_fetch_array($query);
-		$sent_by = ($row['user_to'] == $userLoggedIn) ? "They said:" : "You said";
+		$sent_by = ($row['user_to'] == $userLoggedIn) ? "They said: " : "You said: ";
 
 		//timeframe
 		$date_time_now = date("Y-m-d H:i:s");
@@ -159,7 +159,7 @@ class Message
 			$return_string .= "<a href='messages.php?u=$username'> <div class='user_found_messages'>
 								<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;'>
 								" . $user_found_obj->getFirstAndLastName() . "
-								<span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . "</span>
+								<br><span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . "</span>
 								<p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
 								</div>
 								</a>";
