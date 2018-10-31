@@ -8,3 +8,12 @@ if(mysqli_connect_errno())
 {
     echo "failed to connect:" . mysqli_connect_errno();
 }
+
+// make test connection for prepared statements
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "realsocialmedia";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);

@@ -5,19 +5,39 @@ include("../classes/User.php");
 $query = $_POST['query'];
 $userLoggedIn = $_POST['userLoggedIn'];
 
-$names = explode(" ", $query);
+$names = explode(" ", $query); //$names array           $query string
 
 // check the prediction what we are searching for
 if(strpos($query, "_") !== false) { // if we have _ in the query search in the usernames
-	$usersReturned = mysqli_query($con, "SELECT * FROM users WHERE username LIKE '$query%' AND user_closed='no' LIMIT 8");
+$param = "{$query}%";
+$stmt = $conn->prepare("SELECT * FROM users WHERE username LIKE ? AND user_closed='no' LIMIT 8");
+
+$stmt->bind_param("s", $param);
+$stmt->execute();
+$usersReturned = $stmt->get_result();
+$stmt->close();
 }
 else if(count($names) == 2) { //if 2 elements in the names array
-	$usersReturned = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '%$names[0]%' AND last_name LIKE '%$names[1]%') AND user_closed='no' LIMIT 8");
+    $param1 = "%{$names[0]}%";
+    $param2 = "%{$names[1]}%";
+    $stmt = $conn->prepare("SELECT * FROM users WHERE (first_name LIKE ? AND last_name LIKE ?) AND user_closed='no' LIMIT 8");
+
+    $stmt->bind_param("ss", $param1, $param2);
+    $stmt->execute();
+    $usersReturned = $stmt->get_result();
+    $stmt->close();
 }
 else {
-	$usersReturned = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '%$names[0]%' OR last_name LIKE '%$names[0]%') AND user_closed='no' LIMIT 8");
+    $param1 = "%{$names[0]}%";
+    $stmt = $conn->prepare("SELECT * FROM users WHERE (first_name LIKE ? OR last_name LIKE ?) AND user_closed='no' LIMIT 8");
+
+    $stmt->bind_param("ss", $param1, $param1);
+    $stmt->execute();
+    $usersReturned = $stmt->get_result();
+    $stmt->close();
 }
-if($query != "") {
+if($query != "" ) {
+
 	while($row = mysqli_fetch_array($usersReturned)) {
 
 		$user = new User($con, $userLoggedIn);
