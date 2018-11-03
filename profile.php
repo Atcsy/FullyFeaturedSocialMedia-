@@ -1,7 +1,7 @@
 <?php
 include("includes/header.php");
-include("includes/classes/User.php");
-include("includes/classes/Post.php");
+
+$message_obj = new Message($con, $userLoggedIn);
 // access profile.php?profile_username=$name
 
 if(isset($_GET['profile_username'])) {
@@ -85,16 +85,12 @@ if(isset($_POST['respond_request'])) {
 
 </div>
 
-<div class="profile_main_column column">
-	<div class="posts_area"></div>
+
+
+	  <div class="posts_area"></div>
             <img id="loading" src="assets/images/icons/loading.gif">
-
-
 </div>
-
 		</div>
-
-
 
 
 <!-- Modal -->
