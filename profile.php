@@ -101,18 +101,12 @@ if(isset($_POST['respond_request'])) {
 
 
       <div role="tabpanel" class="tab-pane fade" id="messages_div">
-          <?php
-
-
-            echo "<h4>You and <a href='" . $username ."'>" . $profile_user_obj->getFirstAndLastName() . "</a></h4><hr><br>";
+          <?php  echo "<h4>You and <a href='" . $username ."'>" . $profile_user_obj->getFirstAndLastName() . "</a></h4><hr><br>";
 
             echo "<div class='loaded_messages' id='scroll_messages'>";
               echo $message_obj->getMessages($username);
             echo "</div>";
           ?>
-
-
-
           <div class="message_post">
             <form action="" method="POST">
                 <textarea name='message_body' id='message_textarea' placeholder='Write your message ...'></textarea>
