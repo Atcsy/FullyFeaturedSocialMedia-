@@ -30,6 +30,11 @@ if (isset($_POST['post_message'])) {
     $message_obj->sendMessage($username, $body, $date);
   }
   $link = '#profileTabs a[href="#messages_div"]';
+  echo "<script>
+          $(function(){
+            $('" . $link. "').tab('show');
+          });
+        </script>";
 }
 // echo "<br>";
 // echo "<br>";
