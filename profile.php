@@ -29,6 +29,7 @@ if (isset($_POST['post_message'])) {
     $date = date("Y-m-d H:i:s");
     $message_obj->sendMessage($username, $body, $date);
   }
+  $link = '#profileTabs a[href="#messages_div"]';
 }
 // echo "<br>";
 // echo "<br>";
