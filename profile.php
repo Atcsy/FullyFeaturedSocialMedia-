@@ -23,6 +23,11 @@ if(isset($_POST['add_friend'])) {
 if(isset($_POST['respond_request'])) {
     header("Location: request.php");
 }
+if (isset($_POST['post_message'])) {
+  if (isset($_POST['message_body'])){
+
+  }
+}
 // echo "<br>";
 // echo "<br>";
 // var_dump($_POST);
