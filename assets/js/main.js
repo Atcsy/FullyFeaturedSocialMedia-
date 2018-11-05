@@ -23,3 +23,7 @@ function getUsers(value, user) {
 		$(".results").html(data);
 	});
 }
+
+function getDropdownData(user, type) {
+	console.log(user, type);
+}
