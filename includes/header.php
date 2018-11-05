@@ -61,5 +61,8 @@ if(isset($_SESSION['username'])) {
                 <i class="fa fa-sign-out fa-lg"></i>
             </a>
         </nav>
+
+        <div class="dropdown_data_window"></div>
+        <input type="hidden" id="dropdown_data_type" value="">
     </div>
     <div class="wrapper">
