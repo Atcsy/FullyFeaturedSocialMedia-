@@ -25,5 +25,16 @@ function getUsers(value, user) {
 }
 
 function getDropdownData(user, type) {
-	console.log(user, type);
+	if ($(".dropdown_data_window").css("height") == "0px") { // checking the css height value if 0
+		var pageName;
+
+		if (type == 'notification'){
+
+		} else if (type == 'message') {
+			pagename = "ajax_load_messages.php";
+			$("span").remove("#unread_message");
+		}
+
+
+	}
 }
