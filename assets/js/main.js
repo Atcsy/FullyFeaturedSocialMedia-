@@ -45,8 +45,11 @@ function getDropdownData(user, type) {
 				// append the messages to the appropiate div
 				$(".dropdown_data_window").html(response);
 				$(".dropdown_data_window").css({"padding" : "0px", "height" : "280px"});
-				$(".dropdown_data_type").val(type);
+				$("#dropdown_data_type").val(type);
 			}
 		});
+	} else { //if the height is not 0 aka open
+		$(".dropdown_data_window").html("");
+		$(".dropdown_data_window").css({"padding" : "0px", "height" : "0px"});
 	}
 }
