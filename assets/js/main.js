@@ -31,14 +31,14 @@ function getDropdownData(user, type) {
 		if (type == 'notification'){
 
 		} else if (type == 'message') {
-			pagename = "ajax_load_messages.php";
+			pageName = "ajax_load_messages.php";
 			$("span").remove("#unread_message");
 		}
 
 		var ajaxreq = $.ajax({
 			url: "includes/handlers/" + pageName,
 			type: "POST",
-			data: "page=1&user=" + user,
+			data: "page=1&userLoggedIn=" + user,
 			cache: false,
 
 			success: function(response) {
