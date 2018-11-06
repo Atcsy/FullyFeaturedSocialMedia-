@@ -35,6 +35,18 @@ function getDropdownData(user, type) {
 			$("span").remove("#unread_message");
 		}
 
+		var ajaxreq = $.ajax({
+			url: "includes/handlers/" + pageName,
+			type: "POST",
+			data: "page=1&user=" + user,
+			cache: false,
 
+			success: function(response) {
+				// append the messages to the appropiate div
+				$(".dropdown_data_window").html(response);
+				$(".dropdown_data_window").css({"padding" : "0px", "height" : "280px"});
+				$(".dropdown_data_type").val(type);
+			}
+		});
 	}
 }
