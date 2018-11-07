@@ -4,6 +4,8 @@ include("includes/classes/User.php");
 include("includes/classes/Post.php");
 include("includes/classes/Message.php");
 
+
+
 if(isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
     $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
@@ -30,7 +32,7 @@ if(isset($_SESSION['username'])) {
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/jquery.Jcrop.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <div class="top_bar">
