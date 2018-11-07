@@ -42,6 +42,7 @@ function getDropdownData(user, type) {
 			cache: false,
 
 			success: function(response) {
+				console.log("success")
 				// append the messages to the appropiate div
 				$(".dropdown_data_window").html(response);
 				$(".dropdown_data_window").css({"padding" : "0px", "height" : "280px"});
