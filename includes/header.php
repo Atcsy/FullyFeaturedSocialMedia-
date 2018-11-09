@@ -5,12 +5,12 @@ include("includes/classes/Post.php");
 include("includes/classes/Message.php");
 
 
-
+// if we have $_SESSION['username'] it means the user logged in to the app
 if(isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
     $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
     $user = mysqli_fetch_array($user_details_query);
-} else {
+} else { // redirect the user to the register.php
      header("Location: register.php");
 }
 
