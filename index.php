@@ -1,7 +1,7 @@
 <?php
 include("includes/header.php");
 
-
+//  when the post is submitted
 if(isset($_POST['post'])) {
     $post = new Post($con, $userLoggedIn);
     $post->submitPost($_POST['post_text'], 'none');
