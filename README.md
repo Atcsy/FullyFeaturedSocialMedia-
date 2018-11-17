@@ -4,3 +4,4 @@ starting implement message system
 make test database connection
 
 pull the full folder into another pc
+merge the files
