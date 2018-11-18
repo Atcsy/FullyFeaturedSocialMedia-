@@ -182,6 +182,8 @@ class Message
 		else
 			$start = ($page - 1) * $limit;
 
+			$set_viewed_query = mysqli_query($this-con, "UPDATE messages SET viewed='yes' WHERE user_to='$userLoggedIn'");
+
 		$query = mysqli_query($this->con, "SELECT user_to, user_from FROM messages WHERE user_to='$userLoggedIn' OR user_from='$userLoggedIn' ORDER BY id DESC");
 
 		while($row = mysqli_fetch_array($query)) {
