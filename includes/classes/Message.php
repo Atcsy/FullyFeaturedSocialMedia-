@@ -182,7 +182,7 @@ class Message
 		else
 			$start = ($page - 1) * $limit;
 
-			$set_viewed_query = mysqli_query($this-con, "UPDATE messages SET viewed='yes' WHERE user_to='$userLoggedIn'");
+			$set_viewed_query = mysqli_query($this->con, "UPDATE messages SET viewed='yes' WHERE user_to='$userLoggedIn'");
 
 		$query = mysqli_query($this->con, "SELECT user_to, user_from FROM messages WHERE user_to='$userLoggedIn' OR user_from='$userLoggedIn' ORDER BY id DESC");
 
@@ -206,6 +206,8 @@ class Message
 				$count++;
 
 			$is_unread_query = mysqli_query($this->con, "SELECT opened FROM messages WHERE user_to='$userLoggedIn' AND user_from='$username' ORDER BY id DESC");
+			$row = mysqli_fetch_array($is_unread_query);
+			$style = ($row['opened'] == 'no') ? "background-color: #DDEDFF;" : "";
 
 
 			$user_found_obj = new User($this->con, $username);
@@ -215,7 +217,8 @@ class Message
 			$split = str_split($latest_message_details[1], 12);
 			$split = $split[0] . $dots;
 
-			$return_string .= "<a href='messages.php?u=$username'> <div class='user_found_messages'>
+			$return_string .= "<a href='messages.php?u=$username'>
+								<div class='user_found_messages' style=' ". $style ." '>
 								<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;'>
 								" . $user_found_obj->getFirstAndLastName() . "
 								<br><span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . "</span>
@@ -224,6 +227,11 @@ class Message
 								</a>";
 		}
 
+		//if posts were loaded
+		if($count > $limit)
+			$return_string .= "<input type='hidden'> class 'nextPageDropDownData' value=' ". ($page + 1) ." '><input type='hidden' class='noMoreDropdownData' value='false'>";
+		else
+			$return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'> <p style='text-align:center;'>No more messages to load</p>";
 		return $return_string;
 
 
