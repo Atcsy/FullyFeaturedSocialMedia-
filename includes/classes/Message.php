@@ -193,7 +193,21 @@ class Message
 				array_push($convos, $user_to_push);
 			}
 		}
+
+		$num_iterations = 0; // number of messages checked
+		$count = 1; // number of messages posted
+
 		foreach($convos as $username) {
+			if($num_iterations++ < $start) //if hasnt reachd the start point yet just continue
+				continue;
+			if($count > $limit) //if we reach our limit
+				break;
+			else
+				$count++;
+
+			$is_unread_query = mysqli_query($this->con, "SELECT opened FROM messages WHERE user_to='$userLoggedIn' AND user_from='$username' ORDER BY id DESC");
+
+
 			$user_found_obj = new User($this->con, $username);
 			$latest_message_details = $this->getLatestMessage($userLoggedIn, $username);
 
